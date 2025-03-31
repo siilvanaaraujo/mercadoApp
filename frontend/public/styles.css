@@ -101,38 +101,48 @@ h2 {
 
 /* Form Styles */
 form {
-  padding: 1.5rem;
+  padding: 2rem; /* Aumentei um pouco para melhor espaçamento */
   border-radius: var(--radius);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  background: white; /* Garantindo contraste */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Sombras mais suaves */
   animation: scaleIn 0.4s ease-out 0.4s both;
+  width: 100%;
+  max-width: 400px; /* Evita que o formulário fique muito largo */
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* Mais espaçamento entre os campos */
 }
 
 label {
   display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: hsl(var(--foreground)); /* Melhorando contraste */
   margin-bottom: 0.5rem;
 }
 
 .form-input {
   width: 100%;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.875rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: calc(var(--radius) - 4px);
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(4px);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  padding: 0.75rem 1rem; /* Campos mais confortáveis */
+  font-size: 0.9rem;
+  border: 2px solid hsl(var(--border)); /* Bordas mais visíveis */
+  border-radius: var(--radius);
+  background-color: hsl(var(--muted)); 
+  backdrop-filter: blur(6px);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+/* Efeito ao focar no input */
 .form-input:focus {
   outline: none;
   border-color: hsl(var(--primary));
-  box-shadow: 0 0 0 2px hsla(var(--primary) / 0.2);
+  box-shadow: 0 0 5px hsla(var(--primary) / 0.3);
+}
+
+/* Ajuste ao passar o mouse */
+.form-input:hover {
+  border-color: hsla(var(--primary) / 0.6);
 }
 
 /* Button Styles */
@@ -220,26 +230,6 @@ label {
   display: flex;
   justify-content: center;
   padding: 2.5rem 0;
-}
-
-.spinner {
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 4px solid hsla(var(--primary) / 0.3);
-  border-top: 4px solid hsl(var(--primary));
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-.spinner-small {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid hsl(var(--primary-foreground));
-  border-top: 2px solid transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-right: 0.5rem;
 }
 
 .submit-loading {
@@ -340,11 +330,6 @@ footer {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 @keyframes slideIn {
